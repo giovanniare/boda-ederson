@@ -1,0 +1,71 @@
+<!-- templates/_base.html -->
+
+{% load compress %}
+{% load static %}
+
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="icon" type="image/x-icon" href="../media/icons/wedding-ring.png">
+    <title>Alma & Eder</title>
+
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Caveat:wght@400..700&family=Courgette&family=Tangerine:wght@400;700&family=Yellowtail&display=swap" rel="stylesheet">
+
+    {% compress css %}
+    <link rel="stylesheet" href="{% static 'src/output.css' %}">
+    {% endcompress %}
+
+</head>
+
+<body>
+    {% include "components/navbar.html" %}
+    <div>
+        {% block content %}
+        {% endblock content %}
+    </div>
+
+    <script src="https://cdn.jsdelivr.net/npm/flowbite@3.1.2/dist/flowbite.min.js"></script>
+    <script>
+        window.addEventListener("scroll", function () {
+          const navbar = document.getElementById("navbar");
+          if (window.scrollY > 20) {
+            navbar.classList.remove("bg-transparent");
+            navbar.classList.add("bg-white", "shadow-md");
+          } else {
+            navbar.classList.add("bg-transparent");
+            navbar.classList.remove("bg-white", "shadow-md");
+          }
+        });
+    </script>
+
+    <script>
+      // 📅 Cambia esta fecha a la de tu boda
+      const targetDate = new Date("2025-12-20T17:00:00").getTime();
+    
+      const countdown = () => {
+        const now = new Date().getTime();
+        const distance = targetDate - now;
+    
+        const days = Math.floor(distance / (1000 * 60 * 60 * 24));
+        const hours = Math.floor((distance % (1000 * 60 * 60 * 24)) / (1000 * 60 * 60));
+        const minutes = Math.floor((distance % (1000 * 60 * 60)) / (1000 * 60));
+        const seconds = Math.floor((distance % (1000 * 60)) / 1000);
+    
+        document.getElementById("days").innerText = days;
+        document.getElementById("hours").innerText = hours;
+        document.getElementById("minutes").innerText = minutes;
+        document.getElementById("seconds").innerText = seconds;
+      };
+    
+      countdown();
+      setInterval(countdown, 1000);
+    </script>
+</body>
+
+</html>

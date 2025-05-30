@@ -1,0 +1,33 @@
+{% load static %} 
+{% get_media_prefix as MEDIA_URL %}
+
+<section id="regalos" class="bg-cover bg-center bg-no-repeat min-h-screen h-[100svh] bg-[url('../../media/mesa_regalos.jpg')] bg-gray-700 bg-blend-multiply flex flex-col justify-between">
+    <div class="px-4 mx-auto max-w-screen-xl text-center py-24 lg:py-56">
+      <h1 class="text-7xl font-extrabold text-white yellowtail-regular text-center mt-9 mb-9">
+        Mesa de Regalos
+      </h1>
+      <p class="mb-8 text-lg font-normal text-gray-300 lg:text-xl sm:px-28 lg:px-68 caveat-xl">
+        Aqui la frase del dinerito.
+      </p>
+    </div>
+  
+    <!-- BLOQUE PEGADO AL FONDO -->
+    <div class="px-4 pb-10 mb-9">
+      <div class="flex flex-col space-y-4 sm:flex-row sm:justify-center sm:space-y-0">
+        <a href="#" class="inline-flex justify-center hover:text-gray-900 items-center py-3 px-5 sm:ms-4 text-base font-medium text-center text-white rounded-lg border border-white hover:bg-gray-400 focus:ring-4 focus:ring-gray-400">
+          <img 
+            src="{{ MEDIA_URL }}icons/amazon.png" 
+            alt="Mesa en amazon" 
+            class="max-w-full h-auto rounded-xl shadow-md filter grayscale hover:grayscale-0 transition duration-500"
+          >
+        </a>
+        <a href="#" class="inline-flex justify-center hover:text-gray-900 items-center py-3 px-5 sm:ms-4 text-base font-medium text-center text-white rounded-lg border border-white hover:bg-gray-400 focus:ring-4 focus:ring-gray-400">
+          <img 
+            src="{{ MEDIA_URL }}icons/liverpool.png" 
+            alt="Mesa en amazon" 
+            class="max-w-full h-auto rounded-xl shadow-md filter grayscale hover:grayscale-0 transition duration-500"
+          >
+        </a>
+      </div>
+    </div>
+</section>

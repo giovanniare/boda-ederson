@@ -1,0 +1,55 @@
+{% load static %}
+{% get_media_prefix as MEDIA_URL %}
+
+<section id="confirmacion" class="bg-white ">
+    <div class="py-8 px-4 mx-auto max-w-screen-xl text-center lg:py-16">
+        <h1 class="text-7xl font-extrabold text-gray-600 yellowtail-regular text-center mt-9 mb-9">Confirmanos tu asistencia</h1>
+        <p class="mb-8 text-lg font-normal text-gray-500 lg:text-xl sm:px-16 lg:px-48 dark:text-gray-400 caveat-xl">Aqui una frase para fomentar que les confrimen.</p>
+        <div class="flex flex-col space-y-4 sm:flex-row sm:justify-center sm:space-y-0">
+            <a href="https://wa.me/523319969602?text=Confirmo la asistencia de: (Ingrersa aqui los nombres de los invitados confirmados..)" class="py-3 px-5 sm:ms-4 text-sm font-medium text-gray-900 focus:outline-none bg-white rounded-lg border border-gray-200 hover:bg-gray-100 hover:text-gray-700 focus:z-10 focus:ring-4 focus:ring-gray-100 dark:focus:ring-gray-700 dark:bg-gray-800 dark:text-gray-400 dark:border-gray-600 dark:hover:text-white dark:hover:bg-gray-700 caveat-xl">
+                Confirmar
+            </a>  
+        </div>
+    </div>
+</section>
+
+
+<!--<button id="play-button">🎵 Reproducir nuestra canción</button>
+<audio id="wedding-audio" src="{{ MEDIA_URL }}cancion.mp3"></audio>
+
+<script>
+    document.getElementById("play-button").addEventListener("click", () => {
+        document.getElementById("wedding-audio").play();
+    });
+</script>-->
+
+
+<button 
+    id="music-button"
+    class="fixed bottom-4 left-4 z-50 bg-white text-gray-700 rounded-full p-3 shadow-lg hover:bg-gray-200 transition"
+>
+    ▶️
+</button>
+
+<audio id="bg-music" src="{{ MEDIA_URL }}cancion.mp3" loop></audio>
+
+<script>
+    const audio = document.getElementById('bg-music');
+    const musicButton = document.getElementById('music-button');
+
+    // Volumen inicial
+    audio.volume = 0.5;
+
+    musicButton.addEventListener('click', () => {
+        if (audio.paused) {
+            audio.play().then(() => {
+                musicButton.textContent = '⏸️';
+            }).catch((err) => {
+                console.warn("Error al reproducir audio:", err);
+            });
+        } else {
+            audio.pause();
+            musicButton.textContent = '▶️';
+        }
+    });
+</script>
